@@ -1,9 +1,14 @@
 import { Directive, OnInit, Input, Output, TemplateRef, ViewContainerRef } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user/user.service';
 
 @Directive({
   selector: '[appUserStatus]'
 })
+/**
+ * @description A custom directive for displaying certain elements depending on the user's login status
+ *
+ * @author Allan Poindexter
+ */
 export class UserStatusDirective {
 
   constructor(private userService: UserService,

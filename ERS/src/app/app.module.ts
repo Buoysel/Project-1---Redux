@@ -1,12 +1,19 @@
+/* Modules */
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './modules/app-routing/app-routing.module';
 
+/* Components */
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { UserService } from './services/user.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+/* Services */
+import { UserService } from './services/user/user.service';
+
+/* Directives */
 import { UserStatusDirective } from './directives/user-status/user-status.directive';
 
 
@@ -20,8 +27,10 @@ import { UserStatusDirective } from './directives/user-status/user-status.direct
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
