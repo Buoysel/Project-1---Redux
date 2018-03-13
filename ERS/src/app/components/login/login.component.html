@@ -1,23 +1,38 @@
 <div class="row">
   <div class="col">
 
-    <form>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
       <p class="h4 text-center mb-4">Sign in</p>
 
       <div class="md-form">
         <i class="fa fa-envelope prefix grey-text"></i>
-        <input type="email" id="loginFormUsername" class="form-control">
+        <input type="text" id="loginFormUsername" class="form-control"
+            required mdbActive
+            [(ngModel)]="loginUser.username" name="username"
+            #username="ngModel">
         <label for="loginFormUsername">Username</label>
+        <div [hidden]="username.valid || username.pristine"
+          class="alert alert-danger">
+          Username is required
+        </div>
       </div>
 
       <div class="md-form">
         <i class="fa fa-lock prefix grey-text"></i>
-        <input type="password" id="loginFormPassword" class="form-control">
+        <input type="password" id="loginFormPassword" class="form-control"
+            required mdbActive
+            [(ngModel)]="loginUser.password" name="password"
+            #password="ngModel">
         <label for="loginFormPassword">Password</label>
+        <div [hidden]="password.valid || password.pristine"
+          class="alert alert-danger">
+          A Password is required
+        </div>
       </div>
 
       <div class="text-center mt-4">
-        <button class="btn btn-default" type="submit">Login</button>
+        <button class="btn btn-default" type="submit" 
+          [disabled]="!loginForm.form.valid"> Login</button>
       </div>
     </form>
 

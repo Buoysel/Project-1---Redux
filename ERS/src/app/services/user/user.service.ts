@@ -19,6 +19,9 @@ export class UserService {
   getUserStatus(): boolean {
     return this.userLoggedIn;
   }
+  setUserStatus(status: boolean) {
+    this.userLoggedIn = status;
+  }
 
   getUsers(): ERSUser[] {
     return this.users;

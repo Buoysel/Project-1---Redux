@@ -47,4 +47,8 @@ export class ERSUser {
     getUsername(): string {
         return this.username;
     }
+
+    getPassword(): string {
+        return this.password;
+    }
 }
