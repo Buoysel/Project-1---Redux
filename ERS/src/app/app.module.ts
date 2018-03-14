@@ -14,8 +14,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 /* Services */
 import { UserService } from './services/user/user.service';
 
-/* Directives */
-import { UserStatusDirective } from './directives/user-status/user-status.directive';
 
 
 @NgModule({
@@ -24,7 +22,6 @@ import { UserStatusDirective } from './directives/user-status/user-status.direct
     LoginComponent,
     DashboardComponent,
     NavbarComponent,
-    UserStatusDirective,
   ],
   imports: [
     BrowserModule,

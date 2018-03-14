@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginUser } from '../../models/loginuser';
 import { UserService } from '../../services/user/user.service';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginUser: LoginUser = new LoginUser('', '');
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +26,8 @@ export class LoginComponent implements OnInit {
           users[i].getPassword() === this.loginUser.password) {
             this.userService.setUserStatus(true);
             console.log('User found.');
+            console.log(this.userService.getUserStatus());
+            this.router.navigateByUrl('/dashboard');
             break;
           }
       else {
